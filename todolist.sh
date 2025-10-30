@@ -1,9 +1,9 @@
 #!/bin/bash
+#Simple Todo List Mnager
 
-# File to store tasks
 TODO_FILE="tasks.txt"
 
-# --- Function to view all tasks ---
+
 view_tasks() {
     if [ ! -f "$TODO_FILE" ] || [ ! -s "$TODO_FILE" ]; then
         echo "No tasks found."
@@ -14,7 +14,6 @@ view_tasks() {
     nl -w2 -s". " "$TODO_FILE"
 }
 
-# --- Function to add a new task ---
 add_task() {
     echo -n "Enter a new task: "
     read task
@@ -22,7 +21,6 @@ add_task() {
     echo "Task added: $task"
 }
 
-# --- Function to delete a task ---
 delete_task() {
     if [ ! -f "$TODO_FILE" ] || [ ! -s "$TODO_FILE" ]; then
         echo "No tasks to delete."
@@ -49,7 +47,6 @@ delete_task() {
     echo "Task deleted."
 }
 
-# --- Main menu ---
 while true; do
     echo "=============================="
     echo "====== TO-DO LIST MANAGER ======"
@@ -68,3 +65,4 @@ while true; do
         *) echo "Invalid option. Please choose again." ;;
     esac
 done
+
